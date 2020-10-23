@@ -6,7 +6,6 @@
   overlays = import ./overlays; # nixpkgs overlays
 
   wlr-sunclock = pkgs.callPackage ./pkgs/wlr-sunclock { };
-  # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
-  # ...
+  mpvpaper = pkgs.callPackage ./pkgs/mpvpaper { };
 }
 
