@@ -10,9 +10,10 @@
 
 Mostly Wayland related stuff.
 
-1. [mpvpaper](https://github.com/GhostNaN/mpvpaper)
-2. [wlclock](https://github.com/Leon-Plickat/wlclock)
-3. [wlr-sunclock](https://github.com/sentriz/wlr-sunclock)
+- [mpvpaper](https://github.com/GhostNaN/mpvpaper)
+- [waylock](https://github.com/ifreund/waylock) - Requires `security.pam.services.waylock` to authenticate the user
+- [wlclock](https://github.com/Leon-Plickat/wlclock)
+- [wlr-sunclock](https://github.com/sentriz/wlr-sunclock)
 
 ## TODOs
 
