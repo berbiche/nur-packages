@@ -11,6 +11,8 @@
 Mostly Wayland related stuff.
 
 - [deadd-notification-center](https://github.com/phuhl/linux_notification_center)
+- [eww](https://github.com/elkowar/eww)
+  `eww` requires a nightly build of Rust as of 2021-03-19
 - [mpvpaper](https://github.com/GhostNaN/mpvpaper)
 - [waylock](https://github.com/ifreund/waylock) - Requires `security.pam.services.waylock = {};`
   or `security.pam.services.waylock.unixAuth = true;` to authenticate the user

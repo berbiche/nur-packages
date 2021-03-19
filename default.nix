@@ -1,11 +1,32 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> {}
+# nixpkgs' rustPlatform with an unstable version of Rust
+, rustPlatformNightly ? null
+}:
 
+let
+  niv = import ./nix/sources.nix;
+  nixpkgs-mozilla = import "${niv.nixpkgs-mozilla}/package-set.nix" { inherit pkgs; };
+  rustUnstable = 
+      nixpkgs-mozilla.rustChannelOf {
+        date = "2021-03-19";
+        channel = "nightly";
+        sha256 = "sha256-ILFjWh3iiDw19nRBD/Fq2idW7cxhEMnG8hJ+QbVkK60=";
+      };
+  rustPlatform =
+    if rustPlatformNightly != null then
+      rustPlatformNightly
+    else
+      # rustc = rust -> https://github.com/mozilla/nixpkgs-mozilla/issues/21
+      pkgs.makeRustPlatform { cargo = rustUnstable.cargo; rustc = rustUnstable.rust; };
+in
 {
   lib = import ./lib { inherit pkgs; }; # functions
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
   deadd-notification-center = pkgs.callPackage ./pkgs/deadd-notification-center { };
+  # rustUnstable is not exported, the user should `eww.override { rustUnstable = a-rust-package; }`
+  eww = pkgs.callPackage ./pkgs/eww { inherit rustPlatform; };
   mpvpaper = pkgs.callPackage ./pkgs/mpvpaper { };
   waylock = pkgs.callPackage ./pkgs/waylock { };
   wlclock = pkgs.callPackage ./pkgs/wlclock { };
