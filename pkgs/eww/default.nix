@@ -16,6 +16,8 @@ rustPlatform.buildRustPackage rec {
   };
 
   cargoHash = "sha256-I5RpC1qP8hJy/F7uDtyBeX1sw46WZtUjS5vfI2yC4EI=";
+  # To support nixpkgs-20.09
+  cargoSha256 = "sha256-I5RpC1qP8hJy/F7uDtyBeX1sw46WZtUjS5vfI2yC4EI=";
 
   nativeBuildInputs = [ pkg-config gobject-introspection wrapGAppsHook makeWrapper ];
 
