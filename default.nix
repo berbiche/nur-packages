@@ -10,7 +10,7 @@ let
       nixpkgs-mozilla.rustChannelOf {
         date = "2021-03-19";
         channel = "nightly";
-        sha256 = "sha256-ILFjWh3iiDw19nRBD/Fq2idW7cxhEMnG8hJ+QbVkK60=";
+        sha256 = "sha256-s5kOvQk4INy8tvJ3LMvm2f8vg92V9b/xzsW6j5uHHzY=";
       };
   rustPlatform =
     if rustPlatformNightly != null then
