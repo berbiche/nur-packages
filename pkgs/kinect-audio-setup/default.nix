@@ -74,10 +74,10 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with lib; {
-    description = "";
+    description = "Tools to enable audio input from the Microsoft Kinect sensor device";
     homepage = "https://git.ao2.it/kinect-audio-setup.git";
     maintainers = with maintainers; [ berbiche ];
-    platforms = platforms.unix;
-    license = licenses.gpl2;
+    platforms = platforms.linux;
+    license = licenses.unfree;
   };
 }
