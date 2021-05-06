@@ -27,6 +27,7 @@ in
   deadd-notification-center = pkgs.callPackage ./pkgs/deadd-notification-center { };
   # rustUnstable is not exported, the user should `eww.override { rustUnstable = a-rust-package; }`
   eww = pkgs.callPackage ./pkgs/eww { inherit rustPlatform; };
+  kinect-audio-setup = pkgs.callPackage ./pkgs/kinect-audio-setup { };
   mpvpaper = pkgs.callPackage ./pkgs/mpvpaper { };
   waylock = pkgs.callPackage ./pkgs/waylock { };
   wlclock = pkgs.callPackage ./pkgs/wlclock { };
