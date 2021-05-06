@@ -36,7 +36,10 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-bFwmWh822KvFwP/0Gu097nF5K2uCwCLMB1RtP7k+Zt0=";
   };
 
-  patches = [ ./libusb-1-import-path.patch ];
+  patches = [
+    ./libusb-1-import-path.patch
+    ./udev-rules-extra-devices.patch
+  ];
 
   nativeBuildInputs = [ p7zip libusb1 pkg-config ];
 
