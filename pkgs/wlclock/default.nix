@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub
+{ stdenv, lib, fetchFromGitHub
 , pkgconfig, meson, ninja, scdoc
 , wayland, wayland-protocols, cairo
 }:
