@@ -3,7 +3,7 @@
  * 
  * Original license: MIT
  */
-{ stdenv, fetchFromGitHub
+{ stdenv, lib, fetchFromGitHub
 , autoPatchelfHook, wrapGAppsHook
 , gtk3, gobject-introspection, libxml2, hicolor-icon-theme
 }:
@@ -50,7 +50,7 @@ stdenv.mkDerivation rec {
     sed "s|##PREFIX##|$out|g" $src/com.ph-uhl.deadd.notification.service.in > $out/share/dbus-1/services/com.ph-uhl.deadd.notification.service
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "A haskell-written notification center for users that like a desktop with style";
     homepage = "https://github.com/phuhl/linux_notification_center";
     license = licenses.bsd3;
