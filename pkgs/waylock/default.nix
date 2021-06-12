@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, rustPlatform
+{ stdenv, lib, fetchFromGitHub, rustPlatform
 , pkgconfig, pam, libxkbcommon
 , wayland, fontconfig
 }:
@@ -31,7 +31,7 @@ rustPlatform.buildRustPackage rec {
       $out/bin/waylock
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "A simple screenlocker for Wayland compositors.";
     homepage = "https://github.com/ifreund/waylock";
     license = licenses.mit;
