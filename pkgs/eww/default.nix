@@ -11,13 +11,16 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "elkowar";
     repo = pname;
-    rev = "c4cbdedec58d94fe4368da3bd740c07ea7907113";
-    hash = "sha256-H1RdKwSqqwU2hJSCaNBp0DXimlhd0DUWUkD3nZYdTvs=";
+    rev = "61e42c9c8acb53dbd2eb83ae1f5a946dabede75f";
+    hash = "sha256-pipYAd+XVvWd2M/3eDf6XrLoSC2kMTxIXIzYx6HnBeg=";
   };
 
-  cargoHash = "sha256-I5RpC1qP8hJy/F7uDtyBeX1sw46WZtUjS5vfI2yC4EI=";
+  cargoHash = "sha256-z8pbJTulkX7faKSIWPaUxvSn1W//qHlaYHWRJD2QUto=";
   # To support nixpkgs-20.09
-  cargoSha256 = "sha256-I5RpC1qP8hJy/F7uDtyBeX1sw46WZtUjS5vfI2yC4EI=";
+  cargoSha256 = "sha256-z8pbJTulkX7faKSIWPaUxvSn1W//qHlaYHWRJD2QUto=";
+
+  # Broken test upstream until https://github.com/elkowar/eww/pull/189 is merged
+  checkFlags = [ "--skip=config::eww_config::test::test_merge_includes" ];
 
   nativeBuildInputs = [ pkg-config gobject-introspection wrapGAppsHook makeWrapper ];
 

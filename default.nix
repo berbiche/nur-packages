@@ -4,20 +4,19 @@
 }:
 
 let
+  inherit (pkgs) lib;
   niv = import ./nix/sources.nix;
-  nixpkgs-mozilla = import "${niv.nixpkgs-mozilla}/package-set.nix" { inherit pkgs; };
-  rustUnstable = 
-      nixpkgs-mozilla.rustChannelOf {
-        date = "2021-03-19";
-        channel = "nightly";
-        sha256 = "sha256-s5kOvQk4INy8tvJ3LMvm2f8vg92V9b/xzsW6j5uHHzY=";
-      };
+  rust-overlay = import pkgs.path {
+    inherit (pkgs) system;
+    overlays = [ (import niv.rust-overlay) ];
+  };
+  rustUnstable = rust-overlay.rust-bin.nightly.latest;
   rustPlatform =
     if rustPlatformNightly != null then
       rustPlatformNightly
     else
       # rustc = rust -> https://github.com/mozilla/nixpkgs-mozilla/issues/21
-      pkgs.makeRustPlatform { cargo = rustUnstable.cargo; rustc = rustUnstable.rust; };
+      pkgs.makeRustPlatform { cargo = rustUnstable.cargo; rustc = rustUnstable.default; };
 in
 {
   lib = import ./lib { inherit pkgs; }; # functions
