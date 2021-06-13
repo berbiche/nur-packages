@@ -4,7 +4,7 @@
 }:
 
 let
-  libraryPath = stdenv.lib.makeLibraryPath [ wayland libxkbcommon ];
+  libraryPath = lib.makeLibraryPath [ wayland libxkbcommon ];
 in
 rustPlatform.buildRustPackage rec {
   pname = "waylock";
