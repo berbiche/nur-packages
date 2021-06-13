@@ -2,6 +2,7 @@ name: "Build and populate cache"
 on:
   pull_request:
   push:
+    branches: master
   schedule:
     # rebuild everyday at 4:40
     - cron:  '40 4 * * *'
@@ -27,9 +28,8 @@ jobs:
         cachixName:
           - berbiche
         nixPath:
-          - nixpkgs=channel:nixos-unstable
           - nixpkgs=channel:nixpkgs-unstable
-          - nixpkgs=channel:nixos-20.09
+          - nixpkgs=channel:nixos-21.05
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
