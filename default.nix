@@ -23,8 +23,6 @@ in
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  deadd-notification-center = pkgs.callPackage ./pkgs/deadd-notification-center { };
-  # rustUnstable is not exported, the user should `eww.override { rustUnstable = a-rust-package; }`
   eww = pkgs.callPackage ./pkgs/eww { inherit rustPlatform; };
   kinect-audio-setup = pkgs.callPackage ./pkgs/kinect-audio-setup { };
   mpvpaper = pkgs.callPackage ./pkgs/mpvpaper { };
