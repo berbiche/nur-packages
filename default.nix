@@ -29,5 +29,8 @@ in
   waylock = pkgs.callPackage ./pkgs/waylock { };
   wlclock = pkgs.callPackage ./pkgs/wlclock { };
   wlr-sunclock = pkgs.callPackage ./pkgs/wlr-sunclock { };
+
+  # nwg-piotr's stuff
+  nwg-panel = pkgs.callPackage ./pkgs/nwg-panel { };
 }
 
