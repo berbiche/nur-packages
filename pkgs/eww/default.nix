@@ -1,12 +1,12 @@
 { lib, rustPlatform, fetchFromGitHub
-, makeWrapper, pkg-config, wrapGAppsHook
+, pkg-config, wrapGAppsHook
 , gtk3, gdk-pixbuf, glib, gobject-introspection
 , udev, cairo, pango, atk
 }:
 
 rustPlatform.buildRustPackage rec {
   pname = "eww";
-  version = "unstable-2021-03-08";
+  version = "unstable-2021-06-02";
 
   src = fetchFromGitHub {
     owner = "elkowar";
@@ -16,13 +16,12 @@ rustPlatform.buildRustPackage rec {
   };
 
   cargoHash = "sha256-z8pbJTulkX7faKSIWPaUxvSn1W//qHlaYHWRJD2QUto=";
-  # To support nixpkgs-20.09
-  cargoSha256 = "sha256-z8pbJTulkX7faKSIWPaUxvSn1W//qHlaYHWRJD2QUto=";
+  cargoSha256 = "${cargoHash}";
 
   # Broken test upstream until https://github.com/elkowar/eww/pull/189 is merged
   checkFlags = [ "--skip=config::eww_config::test::test_merge_includes" ];
 
-  nativeBuildInputs = [ pkg-config gobject-introspection wrapGAppsHook makeWrapper ];
+  nativeBuildInputs = [ pkg-config gobject-introspection wrapGAppsHook ];
 
   # There might be extra unneeded dependencies, I did not test
   buildInputs = [
@@ -35,13 +34,11 @@ rustPlatform.buildRustPackage rec {
     atk
   ];
 
-  # dontPatchELF = true;
-
   meta = with lib; {
     description = "ElKowar's waky widgets is a standalone widget system for any window manager";
     homepage = "https://github.com/elkowar/eww";
     license = licenses.mit;
     maintainers = with maintainers; [ berbiche ];
-    platforms = platforms.unix ++ platforms.darwin;
+    platforms = platforms.linux ++ platforms.darwin;
   };
 }

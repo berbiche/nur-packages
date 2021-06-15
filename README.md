@@ -18,6 +18,9 @@ Mostly Wayland related stuff.
 - [wlclock](https://github.com/Leon-Plickat/wlclock)
 - [wlr-sunclock](https://github.com/sentriz/wlr-sunclock)
 
+- [nwg-panel](https://github.com/nwg-piotr/nwg-panel)
+- [nwg-menu](https://github.com/nwg-piotr/nwg-menu)
+
 ## My modules
 
 ### nixos
