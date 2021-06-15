@@ -15,7 +15,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-pipYAd+XVvWd2M/3eDf6XrLoSC2kMTxIXIzYx6HnBeg=";
   };
 
-  cargoHash = "sha256-z8pbJTulkX7faKSIWPaUxvSn1W//qHlaYHWRJD2QUto=";
+  cargoHash = "sha256-Db5o2G9zaf+ZgEt915614qVNw1CwZwFZg9pWjQ2+QGc=";
   cargoSha256 = "${cargoHash}";
 
   # Broken test upstream until https://github.com/elkowar/eww/pull/189 is merged
