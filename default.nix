@@ -18,7 +18,7 @@ let
       # rustc = rust -> https://github.com/mozilla/nixpkgs-mozilla/issues/21
       pkgs.makeRustPlatform { cargo = rustUnstable.cargo; rustc = rustUnstable.default; };
 in
-{
+rec {
   lib = import ./lib { inherit pkgs; }; # functions
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
@@ -31,6 +31,7 @@ in
   wlr-sunclock = pkgs.callPackage ./pkgs/wlr-sunclock { };
 
   # nwg-piotr's stuff
-  nwg-panel = pkgs.callPackage ./pkgs/nwg-panel { };
+  nwg-panel = pkgs.callPackage ./pkgs/nwg-panel { inherit nwg-menu; };
+  nwg-menu = pkgs.callPackage ./pkgs/nwg-menu { };
 }
 
