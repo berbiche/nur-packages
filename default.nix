@@ -24,6 +24,7 @@ let
     callPackage = lib.callPackageWith (pkgs // self);
     callPackages  = lib.callPackagesWith (pkgs // self);
 
+    # Had to adapt the CI script
     eww = throw "eww has been renamed to 'eww-flavors.x11'.";
     eww-flavors = lib.recurseIntoAttrs (self.callPackages ./pkgs/eww { });
     eww-wayland = self.eww-flavors.wayland;
