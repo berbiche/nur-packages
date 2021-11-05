@@ -10,7 +10,7 @@ let
 
   rust-overlay = import pkgs.path {
     inherit (pkgs) system;
-    overlays = [ (import niv.rust-overlay) ];
+    overlays = [ niv.rust-overlay ];
   };
   rustUnstable = rust-overlay.rust-bin.nightly.latest;
   rustPlatform =
